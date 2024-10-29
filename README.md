@@ -1,11 +1,15 @@
 # remark-obsidian-callout
 
-[![CI](https://github.com/escwxyz/remark-obsidian-callout/actions/workflows/unit_test.yaml/badge.svg)](https://github.com/escwxyz/remark-obsidian-callout/actions/workflows/unit_test.yaml)
-[![npm version](https://badge.fury.io/js/remark-obsidian-callout.svg)](https://badge.fury.io/js/remark-obsidian-callout)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Downloads](https://img.shields.io/npm/dt/remark-obsidian-callout.svg)](https://www.npmjs.com/package/remark-obsidian-callout)
 
 A remark plugin to parse Obsidian's callout syntax.
+
+> [!NOTE]
+> This is a FIXED version of the [original](https://github.com/escwxyz/remark-obsidian-callout). It fixes Issue #45 that the author claimed to have fixed in v1.5.0 but that was not fixed.
+>
+> For reference, the issue is on line 19 of `src/index.ts`. `from "} ./icons";` should be `from "} ./icons.js";`
+>
+> In the `dist` folder (not included in the original), line 3 should also include the `.js`.
 
 ## What is this
 
