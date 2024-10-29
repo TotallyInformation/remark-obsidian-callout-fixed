@@ -1,6 +1,6 @@
 {
   "name": "remark-obsidian-callout",
-  "version": "1.5.0",
+  "version": "1.5.0-fixed",
   "description": "A remark plugin to parse Obsidian callouts.",
   "main": "dist/index.js",
   "type": "module",
@@ -22,12 +22,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/escwxyz/remark-obsidian-callout"
+    "url": "https://github.com/totallyinformation/remark-obsidian-callout-fixed"
   },
   "bugs": {
-    "url": "https://github.com/escwxyz/remark-obsidian-callout/issues"
+    "url": "https://github.com/totallyinformation/remark-obsidian-callout-fixed/issues"
   },
-  "homepage": "https://github.com/escwxyz/remark-obsidian-callout#README.md",
+  "homepage": "https://github.com/totallyinformation/remark-obsidian-callout-fixed#README.md",
   "files": [
     "dist/*",
     "README.md",
