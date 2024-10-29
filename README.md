@@ -10,6 +10,8 @@ A remark plugin to parse Obsidian's callout syntax.
 > For reference, the issue is on line 19 of `src/index.ts`. `from "} ./icons";` should be `from "} ./icons.js";`
 >
 > In the `dist` folder (not included in the original), line 3 should also include the `.js`.
+>
+> This version is not published to `npm` but you can install direct from this repo with `npm install totallyinformation/remark-obsidian-callout-fixed --save-dev`.
 
 ## What is this
 
