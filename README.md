@@ -5,11 +5,16 @@
 A remark plugin to parse Obsidian's callout syntax.
 
 > [!NOTE]
-> This is a FIXED version of the [original](https://github.com/escwxyz/remark-obsidian-callout). It fixes Issue #45 that the author claimed to have fixed in v1.5.0 but that was not fixed.
+> This is a FIXED version (v1.5.0-fixed) of the [original](https://github.com/escwxyz/remark-obsidian-callout). It fixes Issue #45 that the author claimed to have fixed in v1.5.0 but that was not fixed.
 >
 > For reference, the issue is on line 19 of `src/index.ts`. `from "} ./icons";` should be `from "} ./icons.js";`
->
 > In the `dist` folder (not included in the original), line 3 should also include the `.js`.
+>
+> Several additional enhancements have also been added (v1.5.1-fixed-2).
+>
+> * If no title is provided (e.g. text after the type specifier), the callout type is automatically added instead.
+> * The `titleTextTransform` config option gets a second argument that contains the callout type
+> * The default tag types for the title icon and title text default as `span` instead of `div`
 >
 > This version is not published to `npm` but you can install direct from this repo with `npm install totallyinformation/remark-obsidian-callout-fixed --save-dev`.
 
@@ -165,7 +170,7 @@ export interface Config {
   // the custom class name to be added to the title text element
   titleTextClass: string;
   // a function to transform the title text, you can use it to append custom strings
-  titleTextTransform: (title: string) => string;
+  titleTextTransform: (title: string, calloutType: string) => string;
   // the tag name for the title icon element, default to `div`
   iconTagName: string;
   // the custom class name to be added to the title icon element
@@ -184,7 +189,7 @@ const defaultConfig: Config = {
   titleClass: "callout-title",
   titleTextTagName: "div",
   titleTextClass: "callout-title-text",
-  titleTextTransform: (title: string) => title.trim(),
+  titleTextTransform: (title: string, calloutType: string) => title.trim(),
   iconTagName: "div",
   iconClass: "callout-title-icon",
   contentClass: "callout-content",
