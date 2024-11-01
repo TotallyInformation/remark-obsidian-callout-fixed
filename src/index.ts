@@ -130,10 +130,10 @@ const defaultConfig: Config = {
   dataAttribute: "callout",
   blockquoteClass: undefined,
   titleClass: "callout-title",
-  titleTextTagName: "div",
+  titleTextTagName: "span",
   titleTextClass: "callout-title-text",
   titleTextTransform: (title: string, calloutType: string) => title.trim(),
-  iconTagName: "div",
+  iconTagName: "span",
   iconClass: "callout-title-icon",
   contentClass: "callout-content",
   callouts: {
