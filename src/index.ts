@@ -83,9 +83,9 @@ export interface Config {
    * a function to transform the title text, you can use it to append custom strings
    * @date 3/23/2023 - 5:16:26 PM
    *
-   * @type {(title: string) => string}
+   * @type {(title: string, calloutType: string) => string}
    */
-  titleTextTransform: (title: string) => string;
+  titleTextTransform: (title: string, calloutType: string) => string;
   /**
    * the tag name for the title icon element, default to `div`
    * @date 3/23/2023 - 5:16:26 PM
@@ -132,7 +132,7 @@ const defaultConfig: Config = {
   titleClass: "callout-title",
   titleTextTagName: "div",
   titleTextClass: "callout-title-text",
-  titleTextTransform: (title: string) => title.trim(),
+  titleTextTransform: (title: string, calloutType: string) => title.trim(),
   iconTagName: "div",
   iconClass: "callout-title-icon",
   contentClass: "callout-content",
@@ -262,7 +262,7 @@ const plugin: Plugin = (
               validCalloutType = "note";
             }
 
-            const title = array.input.slice(matched[0].length).trim();
+            const title = array.input.slice(matched[0].length).trim() || calloutType;
 
             const titleHtmlNode: HtmlNode = {
               type: "html",
@@ -272,9 +272,7 @@ const plugin: Plugin = (
                   <${iconTagName} class="${iconClass}">${icon}</${iconTagName}>
                   ${
                     title &&
-                    `<${titleTextTagName} class="${titleTextClass}">${titleTextTransform(
-                      title
-                    )}</${titleTextTagName}>`
+                    `<${titleTextTagName} class="${titleTextClass}">${titleTextTransform(title, calloutType)}</${titleTextTagName}>`
                   }
                 </div>
                 ${remainingContent && `<div class="${contentClass}">${remainingContent}</div>`}

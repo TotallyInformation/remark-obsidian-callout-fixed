@@ -13,7 +13,7 @@ const defaultConfig = {
     titleClass: "callout-title",
     titleTextTagName: "div",
     titleTextClass: "callout-title-text",
-    titleTextTransform: (title) => title.trim(),
+    titleTextTransform: (title, calloutType) => title.trim(),
     iconTagName: "div",
     iconClass: "callout-title-icon",
     contentClass: "callout-content",
@@ -112,7 +112,7 @@ const plugin = (customConfig) => {
                             icon = callouts.note;
                             validCalloutType = "note";
                         }
-                        const title = array.input.slice(matched[0].length).trim();
+                        const title = array.input.slice(matched[0].length).trim() || calloutType;
                         const titleHtmlNode = {
                             type: "html",
                             data: {},
@@ -120,7 +120,7 @@ const plugin = (customConfig) => {
                 <div class="${titleClass}">
                   <${iconTagName} class="${iconClass}">${icon}</${iconTagName}>
                   ${title &&
-                                `<${titleTextTagName} class="${titleTextClass}">${titleTextTransform(title)}</${titleTextTagName}>`}
+                                `<${titleTextTagName} class="${titleTextClass}">${titleTextTransform(title, calloutType)}</${titleTextTagName}>`}
                 </div>
                 ${remainingContent && `<div class="${contentClass}">${remainingContent}</div>`}
               `,
